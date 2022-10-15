@@ -1,7 +1,6 @@
-public abstract class ComputerImpl
+public abstract class ComputerImpl implements Computer
 {
-    String maker;
-    String model;
+    String maker, model, cpu, ram, disk;
 
     //так мы избавляемся от дублирующего кода
     //в дальнейшем, все что нам нужно - переопределить метод toString
@@ -10,10 +9,15 @@ public abstract class ComputerImpl
     }
 
     public String turnOff() {
-        return "Turn on "+getClass().getSimpleName()+" "+toString();
+        return "Turn off "+getClass().getSimpleName()+" "+toString();
     }
 
     public String connect() {
         return "Connect to internet "+getClass().getSimpleName()+" "+toString();
+    }
+
+    @Override
+    public String toString() {
+        return this.maker + " " + this.model + " with " + this.cpu + ", " + this.ram + ", " + this.disk;
     }
 }
